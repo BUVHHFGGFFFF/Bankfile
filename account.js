@@ -566,10 +566,10 @@ firebase.initializeApp(firebaseConfig);
     const data = snapshot.val();
     console.log("User data:", data);
     const filterUser=data.filter(function(u){
-    return  u.userid=="WTCYUBR657788"
+    return  u.userid==userid
 })
 const filterClient=filterUser[0].clients.filter(function(c){
-    return  c.clientid=="wcy6373gh73790"
+    return  c.clientid==clientid
 })
 dataUser=[...data]
 userinfo=filterUser[0]
