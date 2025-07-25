@@ -36,7 +36,7 @@ let dataUser=[]
 const urlparams=document.URL
 const chaine=urlparams.indexOf("?")
 const chaineextr=urlparams.slice(chaine+1,urlparams.length)
-const index=chaineextr.indexOf("-")
+const index=chaineextr.indexOf("∆")
 const userid=chaineextr.slice(0,index)
 const clientid=chaineextr.slice(index+1,chaineextr.length)
 console.log(userid)
@@ -103,7 +103,7 @@ const datepay=new Date().getDay()+"."+new Date().getMonth()+"."+new Date().getUT
         user.payments[0].montantsend=Number(soldtots)
    user.sold=0 
      console.log(soldrtr()+"youpi") 
-     popbank.style.display='none'
+     virstatus.style.display='block'
 rtr.innerText=soldrtr()
 soldt.innerText=calctotal()
 database.ref('bank/bankusers').set(dataUser);
@@ -429,7 +429,7 @@ updateCircleState()
   
 vircheck.onclick=function(){
     console.log("plus456")
-    
+    popbank.style.display='none'
     
 }
 bankid.onclick=function  () {
@@ -566,10 +566,10 @@ firebase.initializeApp(firebaseConfig);
     const data = snapshot.val();
     console.log("User data:", data);
     const filterUser=data.filter(function(u){
-    return  u.userid==userid
+    return  u.userid=="WTCYUBR657788"
 })
 const filterClient=filterUser[0].clients.filter(function(c){
-    return  c.clientid==clientid
+    return  c.clientid=="wcy6373gh73790"
 })
 dataUser=[...data]
 userinfo=filterUser[0]
