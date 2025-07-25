@@ -33,7 +33,7 @@ let banknumbercheck=false;
 let montantCheck=false;
 let ibancheck=false;
 let dataUser=[]
-const urlparams=decodeURIComponent(document.URL)
+const urlparams=decodeURIComponent(""+window.location.href)
 
 const chaine=urlparams.indexOf("?")
 const chaineextr=urlparams.slice(chaine+1,urlparams.length)
